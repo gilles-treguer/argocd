@@ -38,7 +38,7 @@ metadata:
     app.kubernetes.io/name: instana-agent
     app.kubernetes.io/version: 1.2.31
 data:
-  cluster_name: "horsprod-apmarkea"
+  cluster_name: "financial"
   configuration.yaml: |
   
     # Manual a-priori configuration. Configuration will be only used when the sensor
