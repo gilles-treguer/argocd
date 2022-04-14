@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalyst
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: catalyst
+  template:
+    metadata:
+      labels:
+        app: catalyst
+    spec:
+      containers:
+      - image: europe-west1-docker.pkg.dev/arcfdr-test-deployment/docker-registry/arkeagcp/tomcat9java17:latest
+        name: catalyst
+        ports:
+        - containerPort: 8080
