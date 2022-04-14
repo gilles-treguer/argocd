@@ -2,8 +2,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: allow-internet-and-payments
-  #namespace is specified through kustomize
+  name: allow-internet-and-catalyst
 spec:
   selector:
     matchLabels:
