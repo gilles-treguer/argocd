@@ -19,5 +19,5 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: spring.active.profil
+        - name: spring.active.profile
           value: "dev"
