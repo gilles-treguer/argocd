@@ -5,6 +5,10 @@ metadata:
 
 resources:
   - namespaces.yaml
+  - authorization-policies.yaml
+  - catalyst-svc.yaml
+  - catalyst-deployment.yaml
+  - catalyst-virtualservice.yaml
 
 commonLabels:
   istio.io/rev: asm-1124-1
