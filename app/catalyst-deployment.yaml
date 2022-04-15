@@ -18,3 +18,6 @@ spec:
         name: catalyst
         ports:
         - containerPort: 8080
+        env:
+        - name: spring.active.profil
+          value: "dev"
