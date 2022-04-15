@@ -10,7 +10,7 @@ spec:
   rules:
     - from:
         - source:
-            namespaces: ["istio-ingressgateway", "instana-agent"]
+            namespaces: ["istio-ingressgateway", "catalyst"]
       to:
         - operation:
             methods: ["GET"]
