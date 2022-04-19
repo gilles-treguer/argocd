@@ -1,30 +1,16 @@
----
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
 metadata:
-  name: allow-internet-and-catalyst
-  #namespace is specified through kustomize
+  name: catalyst
 spec:
-  selector:
-    matchLabels:
-      app: catalyst
-  action: ALLOW
-  rules:
-    - from:
-        - source:
-            namespaces: ["istio-ingressgateway", "catalyst"]
-      to:
-        - operation:
-            methods: ["GET"]
-            paths: ["/catalyst*", "/version*"]
----
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: require-mtls
-spec:
-  action: DENY
-  rules:
-    - from:
-        - source:
-            notPrincipals: ["*"]
+  hosts:
+    - "catalyst.onemesh.anthos.val.arkea-gcp.net"
+  gateways:
+    - istio-ingressgateway/istio-ingressgateway
+  http:
+    - match:
+        - uri:
+            prefix: /catalyst
+      route:
+        - destination:
+            host: catalyst
