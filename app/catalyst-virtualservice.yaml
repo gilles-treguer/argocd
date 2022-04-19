@@ -14,3 +14,34 @@ spec:
       route:
         - destination:
             host: catalyst
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-internet-and-catalyst
+  #namespace is specified through kustomize
+spec:
+  selector:
+    matchLabels:
+      app: catalyst
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            namespaces: ["istio-ingressgateway", "catalyst"]
+      to:
+        - operation:
+            methods: ["GET"]
+            paths: ["/catalyst*", "/version*"]
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: require-mtls
+spec:
+  action: DENY
+  rules:
+    - from:
+        - source:
+            notPrincipals: ["*"]
+

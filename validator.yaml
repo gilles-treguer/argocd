@@ -1,0 +1,487 @@
+apiVersion: v1
+items:
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{"operator.knative.dev/mode":"EnsureExists"},"creationTimestamp":"2021-12-14T16:30:18Z","generation":18,"labels":{"serving.knative.dev/release":"v0.23.0-gke.18"},"name":"config.webhook.serving.knative.dev","ownerReferences":[{"apiVersion":"v1","blockOwnerDeletion":true,"controller":true,"kind":"Namespace","name":"knative-serving","uid":"df9ade7e-5814-446f-91d3-e1407fbd9cf9"}],"resourceVersion":"119158338","uid":"db923afc-0608-4eb5-b259-1a24dc179bbc"},"webhooks":[{"admissionReviewVersions":["v1","v1beta1","v1alpha1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNVRENDQWZXZ0F3SUJBZ0lSQU5PUFdUa1VNV0R0b0d4azFNaDJNeWd3Q2dZSUtvWkl6ajBFQXdJd1BERVUKTUJJR0ExVUVDaE1MYTI1aGRHbDJaUzVrWlhZeEpEQWlCZ05WQkFNVEczZGxZbWh2YjJzdWEyNWhkR2wyWlMxegpaWEoyYVc1bkxuTjJZekFlRncweU1qQTBNVGt4TURJek5EWmFGdzB5TWpBME1qWXhNREl6TkRaYU1Ed3hGREFTCkJnTlZCQW9UQzJ0dVlYUnBkbVV1WkdWMk1TUXdJZ1lEVlFRREV4dDNaV0pvYjI5ckxtdHVZWFJwZG1VdGMyVnkKZG1sdVp5NXpkbU13V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPUFFNQkJ3TkNBQVE4UENIejZqN2N4Y1RFanl0VQpMQ1JVMEg4UXZzQXFVSGNjVlNDdU4zY3Evb0laYnl1clBjRjlxTnlwNU9DUXlIN0t1Z1BHNmkySUpGb2RZeEIvCms3NExvNEhYTUlIVU1BNEdBMVVkRHdFQi93UUVBd0lDaERBZEJnTlZIU1VFRmpBVUJnZ3JCZ0VGQlFjREFRWUkKS3dZQkJRVUhBd0l3RHdZRFZSMFRBUUgvQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVZmx4cFd6ajN0ZzUzZlNyOApueUFOUE91V3Myb3djd1lEVlIwUkJHd3dhb0lIZDJWaWFHOXZhNElYZDJWaWFHOXZheTVyYm1GMGFYWmxMWE5sCmNuWnBibWVDRzNkbFltaHZiMnN1YTI1aGRHbDJaUzF6WlhKMmFXNW5Mbk4yWTRJcGQyVmlhRzl2YXk1cmJtRjAKYVhabExYTmxjblpwYm1jdWMzWmpMbU5zZFhOMFpYSXViRzlqWVd3d0NnWUlLb1pJemowRUF3SURTUUF3UmdJaApBTXM4L253UXFtb0FYMi8zRGJGT2xUb0p1MzV4TGJhZHVvOUFnZ3dMVXFZVEFpRUE4RWo2eUx5N0xLTXpyWmNVCkE0NkVvVXg1M2ZJQmNMQm0xTXk2ZHFFSUp3Zz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=","service":{"name":"webhook","namespace":"knative-serving","path":"/config-validation","port":443}},"failurePolicy":"Ignore","matchPolicy":"Equivalent","name":"config.webhook.serving.knative.dev","namespaceSelector":{"matchExpressions":[{"key":"serving.knative.dev/release","operator":"Exists"}]},"objectSelector":{},"rules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["configmaps/*"],"scope":"Namespaced"}],"sideEffects":"None","timeoutSeconds":10}]}
+      operator.knative.dev/mode: EnsureExists
+    creationTimestamp: "2021-12-14T16:30:18Z"
+    generation: 18
+    labels:
+      serving.knative.dev/release: v0.23.0-gke.18
+    name: config.webhook.serving.knative.dev
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Namespace
+      name: knative-serving
+      uid: df9ade7e-5814-446f-91d3-e1407fbd9cf9
+    resourceVersion: "119171151"
+    uid: db923afc-0608-4eb5-b259-1a24dc179bbc
+  webhooks:
+  - admissionReviewVersions:
+    - v1
+    - v1beta1
+    - v1alpha1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNVRENDQWZXZ0F3SUJBZ0lSQU5PUFdUa1VNV0R0b0d4azFNaDJNeWd3Q2dZSUtvWkl6ajBFQXdJd1BERVUKTUJJR0ExVUVDaE1MYTI1aGRHbDJaUzVrWlhZeEpEQWlCZ05WQkFNVEczZGxZbWh2YjJzdWEyNWhkR2wyWlMxegpaWEoyYVc1bkxuTjJZekFlRncweU1qQTBNVGt4TURJek5EWmFGdzB5TWpBME1qWXhNREl6TkRaYU1Ed3hGREFTCkJnTlZCQW9UQzJ0dVlYUnBkbVV1WkdWMk1TUXdJZ1lEVlFRREV4dDNaV0pvYjI5ckxtdHVZWFJwZG1VdGMyVnkKZG1sdVp5NXpkbU13V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPUFFNQkJ3TkNBQVE4UENIejZqN2N4Y1RFanl0VQpMQ1JVMEg4UXZzQXFVSGNjVlNDdU4zY3Evb0laYnl1clBjRjlxTnlwNU9DUXlIN0t1Z1BHNmkySUpGb2RZeEIvCms3NExvNEhYTUlIVU1BNEdBMVVkRHdFQi93UUVBd0lDaERBZEJnTlZIU1VFRmpBVUJnZ3JCZ0VGQlFjREFRWUkKS3dZQkJRVUhBd0l3RHdZRFZSMFRBUUgvQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVZmx4cFd6ajN0ZzUzZlNyOApueUFOUE91V3Myb3djd1lEVlIwUkJHd3dhb0lIZDJWaWFHOXZhNElYZDJWaWFHOXZheTVyYm1GMGFYWmxMWE5sCmNuWnBibWVDRzNkbFltaHZiMnN1YTI1aGRHbDJaUzF6WlhKMmFXNW5Mbk4yWTRJcGQyVmlhRzl2YXk1cmJtRjAKYVhabExYTmxjblpwYm1jdWMzWmpMbU5zZFhOMFpYSXViRzlqWVd3d0NnWUlLb1pJemowRUF3SURTUUF3UmdJaApBTXM4L253UXFtb0FYMi8zRGJGT2xUb0p1MzV4TGJhZHVvOUFnZ3dMVXFZVEFpRUE4RWo2eUx5N0xLTXpyWmNVCkE0NkVvVXg1M2ZJQmNMQm0xTXk2ZHFFSUp3Zz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+      service:
+        name: webhook
+        namespace: knative-serving
+        path: /config-validation
+        port: 443
+    failurePolicy: Ignore
+    matchPolicy: Equivalent
+    name: config.webhook.serving.knative.dev
+    namespaceSelector:
+      matchExpressions:
+      - key: serving.knative.dev/release
+        operator: Exists
+    objectSelector: {}
+    rules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - configmaps/*
+      scope: Namespaced
+    sideEffects: None
+    timeoutSeconds: 10
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"creationTimestamp":"2021-11-10T13:44:45Z","generation":1,"labels":{"networking.gke.io/common-webhooks":"true"},"name":"flowcontrol-guardrails.config.common-webhooks.networking.gke.io","resourceVersion":"119158739","uid":"8206a5c0-83de-4532-8131-ebf7b3457810"},"webhooks":[{"admissionReviewVersions":["v1beta1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","url":"https://localhost:5443/webhook/flowcontrol-guardrails"},"failurePolicy":"Ignore","matchPolicy":"Equivalent","name":"flowcontrol-guardrails.common-webhooks.networking.gke.io","namespaceSelector":{},"objectSelector":{},"rules":[{"apiGroups":["flowcontrol.apiserver.k8s.io"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["prioritylevelconfigurations","flowschemas"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10}]}
+    creationTimestamp: "2021-11-10T13:44:45Z"
+    generation: 1
+    labels:
+      networking.gke.io/common-webhooks: "true"
+    name: flowcontrol-guardrails.config.common-webhooks.networking.gke.io
+    resourceVersion: "119166230"
+    uid: 8206a5c0-83de-4532-8131-ebf7b3457810
+  webhooks:
+  - admissionReviewVersions:
+    - v1beta1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      url: https://localhost:5443/webhook/flowcontrol-guardrails
+    failurePolicy: Ignore
+    matchPolicy: Equivalent
+    name: flowcontrol-guardrails.common-webhooks.networking.gke.io
+    namespaceSelector: {}
+    objectSelector: {}
+    rules:
+    - apiGroups:
+      - flowcontrol.apiserver.k8s.io
+      apiVersions:
+      - v1beta1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - prioritylevelconfigurations
+      - flowschemas
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"creationTimestamp":"2021-11-10T13:54:11Z","generation":13,"labels":{"app":"istiod","install.operator.istio.io/owning-resource":"registry-only","install.operator.istio.io/owning-resource-namespace":"istio-system","istio":"istiod","istio.io/rev":"asm-1112-17","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.11.2-asm.17","release":"istio"},"name":"istio-validator-asm-1112-17-istio-system","resourceVersion":"119158740","uid":"fd080315-c1f0-48bd-a5c5-0ae0938fca59"},"webhooks":[{"admissionReviewVersions":["v1beta1","v1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","service":{"name":"istiod-asm-1124-1","namespace":"istio-system","path":"/validate","port":443}},"failurePolicy":"Fail","matchPolicy":"Equivalent","name":"rev.validation.istio.io","namespaceSelector":{},"objectSelector":{"matchExpressions":[{"key":"istio.io/rev","operator":"In","values":["asm-1112-17","asm-1124-1"]}]},"rules":[{"apiGroups":["security.istio.io","networking.istio.io"],"apiVersions":["*"],"operations":["CREATE","UPDATE"],"resources":["*"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10},{"admissionReviewVersions":["v1beta1","v1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","service":{"name":"istiod-asm-1112-17","namespace":"istio-system","path":"/validate","port":443}},"failurePolicy":"Fail","matchPolicy":"Equivalent","name":"validation.istio.io","namespaceSelector":{},"objectSelector":{"matchExpressions":[{"key":"istio.io/rev","operator":"DoesNotExist"}]},"rules":[{"apiGroups":["security.istio.io","networking.istio.io","telemetry.istio.io"],"apiVersions":["*"],"operations":["CREATE","UPDATE"],"resources":["*"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10}]}
+    creationTimestamp: "2021-11-10T13:54:11Z"
+    generation: 14
+    labels:
+      app: istiod
+      install.operator.istio.io/owning-resource: registry-only
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio: istiod
+      istio.io/rev: asm-1112-17
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.11.2-asm.17
+      release: istio
+    name: istio-validator-asm-1112-17-istio-system
+    resourceVersion: "119166231"
+    uid: fd080315-c1f0-48bd-a5c5-0ae0938fca59
+  webhooks:
+  - admissionReviewVersions:
+    - v1beta1
+    - v1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      service:
+        name: istiod-asm-1124-1
+        namespace: istio-system
+        path: /validate
+        port: 443
+    failurePolicy: Fail
+    matchPolicy: Equivalent
+    name: rev.validation.istio.io
+    namespaceSelector: {}
+    objectSelector:
+      matchExpressions:
+      - key: istio.io/rev
+        operator: In
+        values:
+        - asm-1112-17
+        - asm-1124-1
+    rules:
+    - apiGroups:
+      - security.istio.io
+      - networking.istio.io
+      apiVersions:
+      - '*'
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - '*'
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+  - admissionReviewVersions:
+    - v1beta1
+    - v1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      service:
+        name: istiod-asm-1124-1
+        namespace: istio-system
+        path: /validate
+        port: 443
+    failurePolicy: Fail
+    matchPolicy: Equivalent
+    name: validation.istio.io
+    namespaceSelector: {}
+    objectSelector:
+      matchExpressions:
+      - key: istio.io/rev
+        operator: DoesNotExist
+    rules:
+    - apiGroups:
+      - security.istio.io
+      - networking.istio.io
+      - telemetry.istio.io
+      apiVersions:
+      - '*'
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - '*'
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"creationTimestamp":"2022-02-25T08:32:13Z","generation":5,"labels":{"app":"istiod","install.operator.istio.io/owning-resource-namespace":"istio-system","istio":"istiod","istio.io/rev":"asm-1124-1","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.12.4-asm.1","release":"istio"},"name":"istio-validator-asm-1124-1-istio-system","resourceVersion":"119158741","uid":"b9e6a198-ac07-4c32-b665-e4aba9808462"},"webhooks":[{"admissionReviewVersions":["v1beta1","v1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","service":{"name":"istiod-asm-1124-1","namespace":"istio-system","path":"/validate","port":443}},"failurePolicy":"Fail","matchPolicy":"Equivalent","name":"rev.validation.istio.io","namespaceSelector":{},"objectSelector":{"matchExpressions":[{"key":"istio.io/rev","operator":"In","values":["asm-1124-1"]}]},"rules":[{"apiGroups":["security.istio.io","networking.istio.io","telemetry.istio.io","extensions.istio.io"],"apiVersions":["*"],"operations":["CREATE","UPDATE"],"resources":["*"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10}]}
+    creationTimestamp: "2022-02-25T08:32:13Z"
+    generation: 5
+    labels:
+      app: istiod
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio: istiod
+      istio.io/rev: asm-1124-1
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.12.4-asm.1
+      release: istio
+    name: istio-validator-asm-1124-1-istio-system
+    resourceVersion: "119166232"
+    uid: b9e6a198-ac07-4c32-b665-e4aba9808462
+  webhooks:
+  - admissionReviewVersions:
+    - v1beta1
+    - v1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      service:
+        name: istiod-asm-1124-1
+        namespace: istio-system
+        path: /validate
+        port: 443
+    failurePolicy: Fail
+    matchPolicy: Equivalent
+    name: rev.validation.istio.io
+    namespaceSelector: {}
+    objectSelector:
+      matchExpressions:
+      - key: istio.io/rev
+        operator: In
+        values:
+        - asm-1124-1
+    rules:
+    - apiGroups:
+      - security.istio.io
+      - networking.istio.io
+      - telemetry.istio.io
+      - extensions.istio.io
+      apiVersions:
+      - '*'
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - '*'
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"creationTimestamp":"2021-11-10T13:44:45Z","generation":1,"labels":{"networking.gke.io/common-webhooks":"true"},"name":"nodelimit.config.common-webhooks.networking.gke.io","resourceVersion":"119158742","uid":"9a380da2-fe19-4792-93a5-2e51c54129a9"},"webhooks":[{"admissionReviewVersions":["v1beta1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","url":"https://localhost:5443/webhook/nodelimit"},"failurePolicy":"Ignore","matchPolicy":"Equivalent","name":"nodelimit.common-webhooks.networking.gke.io","namespaceSelector":{},"objectSelector":{},"rules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE"],"resources":["nodes"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10}]}
+    creationTimestamp: "2021-11-10T13:44:45Z"
+    generation: 1
+    labels:
+      networking.gke.io/common-webhooks: "true"
+    name: nodelimit.config.common-webhooks.networking.gke.io
+    resourceVersion: "119166233"
+    uid: 9a380da2-fe19-4792-93a5-2e51c54129a9
+  webhooks:
+  - admissionReviewVersions:
+    - v1beta1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      url: https://localhost:5443/webhook/nodelimit
+    failurePolicy: Ignore
+    matchPolicy: Equivalent
+    name: nodelimit.common-webhooks.networking.gke.io
+    namespaceSelector: {}
+    objectSelector: {}
+    rules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      resources:
+      - nodes
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      components.gke.io/layer: addon
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{"components.gke.io/layer":"addon"},"creationTimestamp":"2021-11-10T13:44:47Z","generation":1,"labels":{"addonmanager.kubernetes.io/mode":"Reconcile"},"name":"validation-webhook.snapshot.storage.k8s.io","resourceVersion":"119158743","uid":"4ae2c4e8-49f0-4199-96e1-c70ad59d40c9"},"webhooks":[{"admissionReviewVersions":["v1","v1beta1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","url":"https://localhost:23011/volumesnapshot"},"failurePolicy":"Ignore","matchPolicy":"Equivalent","name":"validation-webhook.snapshot.storage.k8s.io","namespaceSelector":{},"objectSelector":{},"rules":[{"apiGroups":["snapshot.storage.k8s.io"],"apiVersions":["v1","v1beta1"],"operations":["CREATE","UPDATE"],"resources":["volumesnapshots","volumesnapshotcontents"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10}]}
+    creationTimestamp: "2021-11-10T13:44:47Z"
+    generation: 1
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: validation-webhook.snapshot.storage.k8s.io
+    resourceVersion: "119166237"
+    uid: 4ae2c4e8-49f0-4199-96e1-c70ad59d40c9
+  webhooks:
+  - admissionReviewVersions:
+    - v1
+    - v1beta1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlZdFB3ZGV3cFNvK0M2YnI2TFFrVUF3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lXUTVaR0pqWXpNdFpEUm1ZeTAwTjJZd0xXSmtNek10TURjM01EZ3hPREkwTW1SagpNQ0FYRFRJeE1URXhNREV5TkRJd00xb1lEekl3TlRFeE1UQXpNVE0wTWpBeldqQXZNUzB3S3dZRFZRUURFeVJoClpEbGtZbU5qTXkxa05HWmpMVFEzWmpBdFltUXpNeTB3Tnpjd09ERTRNalF5WkdNd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDakJHUGwrZHZ0RGJ6OHZnL2NxQ3ExRURaYnBZeGsvd3dVaGRKKwpnTzlkaW9iKzRqZDNqUlI4bEpMdmFHVmNVd0xPeVl3MjBrMjdoVnNPOUxZYXJoQ1Zxd25GVXEvaDdFTGJndW5GCnFEZzhYL0tyY3p1Wm9CcUdGNDdvM0RTMWVpOXI2U0hXRGpkY0dTdDdzMDJuKzlWS1VPcmdQRmx4WWxuV0JmV2QKZlRHMnJCWTVQcDNWVTJhUFVXVDJTNXZnbjBNUzFiaEtpak03ZjZ3VjZ5dkxnRGcvZlY0TTl4TTBtdGFSVHhyZwppaVMyaFhSMm1kdk9GTmZ3UVZTbVJMTjhnRjMrZlhnU3pyMjg5YmFzTXNET3BCN0lDU1hUaHRMMkhzbDgzMHU2CkI3dnpoaHpEME00RWIvRXdhU0lCandSSUZUUVVqTlc2QklwQURHOStiekxHakdNeklaRnBJL1JicTlHRmJQeTYKWXJsZjlFRmhRcWVmaVNnVjEzNGtwOWhSSVpQekFMOTZzUFhVcjRUQzN5UjFiTk1nV29rY2lYaTIxdHJjQkQ0dgpyRVUzUWRIRE90SGJpZ1N2R3hickJyUEdmcnUwaDNNOFhlZ1lPWEVLV3Rqc1JFYmFjNSthSWJ6S1pHY2tyYVljCk5BVGdGUEk2NnVqT3dJUkNWRXVTelk0VHNaa0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTnhUVTM1Um9jM0c0Q1MwMTlZUmpmR1loVkxuTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1IwL1RMcGd0eGlsNld4bkY1ZHFTNFliandJTW1kWmM2TDY1S245c0NzCjBZZXU2b0FPNDlGWi93NXB4djMrNW1mVXg3dUI0Tk5CdXp5bWxqMFljemEzbkJxSjM5WDE0bm5DNFo1ei9UR1QKMmNZSlFSWFY3eWI3a3phY2gvN3k0S1YvdDUwdUdmSkkvMUlLdkhSb0hFZzc3a2w2K0NzSjJTTEQ0L3NBTk9MdgpuU3B2b2hjZFRpem9rUk96cHZKT09HT1gwQzBLc2NsY2p0WTFMc01kQ0xjZ1llRVZPUDJCVWppNDErQWlFeVRZCmkzY1dmekhsTU1ZcmJrYUVJc0tjRHZuSzBHWVhsVTlXbHRWOVRROThUQmk3eXY3WkxsYTRXcytPZUI1MldrTUUKOTJHakpsdWtub2FBaHFrbDkvZFRtWHpVblFDNHcyVnVudEI5b2hxNUZRcGgzZUxTV3pBYjN2L1BUL1RjeFptYgpoT0tSRG1OL25HYVlpd3BjSjZhL2FvS3ByV0ZTN25kY0NZWnJkREpMUFcxbGxIRmpXYm84dnRMSGxUUmo0NUE1CkM3V2tRSVdHOTdRTHZQWUZLWExnZWtCZXJxcXcyeTdQS0pNT2pTYytqRVhod0tWdG1mSVFSUWRKbVM4ZmV1RTgKMlAvTm8yazhoRkJRalB1a01HM2djYkE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      url: https://localhost:23011/volumesnapshot
+    failurePolicy: Ignore
+    matchPolicy: Equivalent
+    name: validation-webhook.snapshot.storage.k8s.io
+    namespaceSelector: {}
+    objectSelector: {}
+    rules:
+    - apiGroups:
+      - snapshot.storage.k8s.io
+      apiVersions:
+      - v1
+      - v1beta1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - volumesnapshots
+      - volumesnapshotcontents
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+- apiVersion: admissionregistration.k8s.io/v1
+  kind: ValidatingWebhookConfiguration
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{"operator.knative.dev/mode":"EnsureExists"},"creationTimestamp":"2021-12-14T16:30:19Z","generation":18,"labels":{"serving.knative.dev/release":"v0.23.0-gke.18"},"name":"validation.webhook.serving.knative.dev","ownerReferences":[{"apiVersion":"v1","blockOwnerDeletion":true,"controller":true,"kind":"Namespace","name":"knative-serving","uid":"df9ade7e-5814-446f-91d3-e1407fbd9cf9"}],"resourceVersion":"119158339","uid":"df9df4e9-a57d-48ce-b46e-55e1792e7d1f"},"webhooks":[{"admissionReviewVersions":["v1","v1beta1","v1alpha1"],"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNVRENDQWZXZ0F3SUJBZ0lSQU5PUFdUa1VNV0R0b0d4azFNaDJNeWd3Q2dZSUtvWkl6ajBFQXdJd1BERVUKTUJJR0ExVUVDaE1MYTI1aGRHbDJaUzVrWlhZeEpEQWlCZ05WQkFNVEczZGxZbWh2YjJzdWEyNWhkR2wyWlMxegpaWEoyYVc1bkxuTjJZekFlRncweU1qQTBNVGt4TURJek5EWmFGdzB5TWpBME1qWXhNREl6TkRaYU1Ed3hGREFTCkJnTlZCQW9UQzJ0dVlYUnBkbVV1WkdWMk1TUXdJZ1lEVlFRREV4dDNaV0pvYjI5ckxtdHVZWFJwZG1VdGMyVnkKZG1sdVp5NXpkbU13V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPUFFNQkJ3TkNBQVE4UENIejZqN2N4Y1RFanl0VQpMQ1JVMEg4UXZzQXFVSGNjVlNDdU4zY3Evb0laYnl1clBjRjlxTnlwNU9DUXlIN0t1Z1BHNmkySUpGb2RZeEIvCms3NExvNEhYTUlIVU1BNEdBMVVkRHdFQi93UUVBd0lDaERBZEJnTlZIU1VFRmpBVUJnZ3JCZ0VGQlFjREFRWUkKS3dZQkJRVUhBd0l3RHdZRFZSMFRBUUgvQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVZmx4cFd6ajN0ZzUzZlNyOApueUFOUE91V3Myb3djd1lEVlIwUkJHd3dhb0lIZDJWaWFHOXZhNElYZDJWaWFHOXZheTVyYm1GMGFYWmxMWE5sCmNuWnBibWVDRzNkbFltaHZiMnN1YTI1aGRHbDJaUzF6WlhKMmFXNW5Mbk4yWTRJcGQyVmlhRzl2YXk1cmJtRjAKYVhabExYTmxjblpwYm1jdWMzWmpMbU5zZFhOMFpYSXViRzlqWVd3d0NnWUlLb1pJemowRUF3SURTUUF3UmdJaApBTXM4L253UXFtb0FYMi8zRGJGT2xUb0p1MzV4TGJhZHVvOUFnZ3dMVXFZVEFpRUE4RWo2eUx5N0xLTXpyWmNVCkE0NkVvVXg1M2ZJQmNMQm0xTXk2ZHFFSUp3Zz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=","service":{"name":"webhook","namespace":"knative-serving","path":"/resource-validation","port":443}},"failurePolicy":"Fail","matchPolicy":"Equivalent","name":"validation.webhook.serving.knative.dev","namespaceSelector":{"matchExpressions":[{"key":"webhooks.knative.dev/exclude","operator":"DoesNotExist"}]},"objectSelector":{},"rules":[{"apiGroups":["autoscaling.internal.knative.dev"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["metrics","metrics/status"],"scope":"*"},{"apiGroups":["autoscaling.internal.knative.dev"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["podautoscalers","podautoscalers/status"],"scope":"*"},{"apiGroups":["networking.internal.knative.dev"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["certificates","certificates/status"],"scope":"*"},{"apiGroups":["networking.internal.knative.dev"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["ingresses","ingresses/status"],"scope":"*"},{"apiGroups":["networking.internal.knative.dev"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["serverlessservices","serverlessservices/status"],"scope":"*"},{"apiGroups":["serving.knative.dev"],"apiVersions":["v1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["configurations","configurations/status"],"scope":"*"},{"apiGroups":["serving.knative.dev"],"apiVersions":["v1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["revisions","revisions/status"],"scope":"*"},{"apiGroups":["serving.knative.dev"],"apiVersions":["v1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["routes","routes/status"],"scope":"*"},{"apiGroups":["serving.knative.dev"],"apiVersions":["v1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["services","services/status"],"scope":"*"},{"apiGroups":["tls.cloudrun.com"],"apiVersions":["v1alpha1"],"operations":["CREATE","UPDATE","DELETE"],"resources":["orders","orders/status"],"scope":"*"}],"sideEffects":"None","timeoutSeconds":10}]}
+      operator.knative.dev/mode: EnsureExists
+    creationTimestamp: "2021-12-14T16:30:19Z"
+    generation: 18
+    labels:
+      serving.knative.dev/release: v0.23.0-gke.18
+    name: validation.webhook.serving.knative.dev
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Namespace
+      name: knative-serving
+      uid: df9ade7e-5814-446f-91d3-e1407fbd9cf9
+    resourceVersion: "119171153"
+    uid: df9df4e9-a57d-48ce-b46e-55e1792e7d1f
+  webhooks:
+  - admissionReviewVersions:
+    - v1
+    - v1beta1
+    - v1alpha1
+    clientConfig:
+      caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNVRENDQWZXZ0F3SUJBZ0lSQU5PUFdUa1VNV0R0b0d4azFNaDJNeWd3Q2dZSUtvWkl6ajBFQXdJd1BERVUKTUJJR0ExVUVDaE1MYTI1aGRHbDJaUzVrWlhZeEpEQWlCZ05WQkFNVEczZGxZbWh2YjJzdWEyNWhkR2wyWlMxegpaWEoyYVc1bkxuTjJZekFlRncweU1qQTBNVGt4TURJek5EWmFGdzB5TWpBME1qWXhNREl6TkRaYU1Ed3hGREFTCkJnTlZCQW9UQzJ0dVlYUnBkbVV1WkdWMk1TUXdJZ1lEVlFRREV4dDNaV0pvYjI5ckxtdHVZWFJwZG1VdGMyVnkKZG1sdVp5NXpkbU13V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPUFFNQkJ3TkNBQVE4UENIejZqN2N4Y1RFanl0VQpMQ1JVMEg4UXZzQXFVSGNjVlNDdU4zY3Evb0laYnl1clBjRjlxTnlwNU9DUXlIN0t1Z1BHNmkySUpGb2RZeEIvCms3NExvNEhYTUlIVU1BNEdBMVVkRHdFQi93UUVBd0lDaERBZEJnTlZIU1VFRmpBVUJnZ3JCZ0VGQlFjREFRWUkKS3dZQkJRVUhBd0l3RHdZRFZSMFRBUUgvQkFVd0F3RUIvekFkQmdOVkhRNEVGZ1FVZmx4cFd6ajN0ZzUzZlNyOApueUFOUE91V3Myb3djd1lEVlIwUkJHd3dhb0lIZDJWaWFHOXZhNElYZDJWaWFHOXZheTVyYm1GMGFYWmxMWE5sCmNuWnBibWVDRzNkbFltaHZiMnN1YTI1aGRHbDJaUzF6WlhKMmFXNW5Mbk4yWTRJcGQyVmlhRzl2YXk1cmJtRjAKYVhabExYTmxjblpwYm1jdWMzWmpMbU5zZFhOMFpYSXViRzlqWVd3d0NnWUlLb1pJemowRUF3SURTUUF3UmdJaApBTXM4L253UXFtb0FYMi8zRGJGT2xUb0p1MzV4TGJhZHVvOUFnZ3dMVXFZVEFpRUE4RWo2eUx5N0xLTXpyWmNVCkE0NkVvVXg1M2ZJQmNMQm0xTXk2ZHFFSUp3Zz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+      service:
+        name: webhook
+        namespace: knative-serving
+        path: /resource-validation
+        port: 443
+    failurePolicy: Fail
+    matchPolicy: Equivalent
+    name: validation.webhook.serving.knative.dev
+    namespaceSelector:
+      matchExpressions:
+      - key: webhooks.knative.dev/exclude
+        operator: DoesNotExist
+    objectSelector: {}
+    rules:
+    - apiGroups:
+      - autoscaling.internal.knative.dev
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - metrics
+      - metrics/status
+      scope: '*'
+    - apiGroups:
+      - autoscaling.internal.knative.dev
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - podautoscalers
+      - podautoscalers/status
+      scope: '*'
+    - apiGroups:
+      - networking.internal.knative.dev
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - certificates
+      - certificates/status
+      scope: '*'
+    - apiGroups:
+      - networking.internal.knative.dev
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - ingresses
+      - ingresses/status
+      scope: '*'
+    - apiGroups:
+      - networking.internal.knative.dev
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - serverlessservices
+      - serverlessservices/status
+      scope: '*'
+    - apiGroups:
+      - serving.knative.dev
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - configurations
+      - configurations/status
+      scope: '*'
+    - apiGroups:
+      - serving.knative.dev
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - revisions
+      - revisions/status
+      scope: '*'
+    - apiGroups:
+      - serving.knative.dev
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - routes
+      - routes/status
+      scope: '*'
+    - apiGroups:
+      - serving.knative.dev
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - services
+      - services/status
+      scope: '*'
+    - apiGroups:
+      - tls.cloudrun.com
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      resources:
+      - orders
+      - orders/status
+      scope: '*'
+    sideEffects: None
+    timeoutSeconds: 10
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
