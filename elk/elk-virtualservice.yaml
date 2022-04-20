@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: elk
+spec:
+  hosts:
+    - elk.onemesh.anthos.val.arkea-gcp.net
+  gateways:
+    - istio-ingressgateway/istio-ingressgateway
+  http:
+    - match:
+        - uri:
+            prefix: /elk
+      route:
+        - destination:
+            host: elk
