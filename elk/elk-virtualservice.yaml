@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: elk
+  name: elastic-operator
 spec:
   hosts:
     - elk.onemesh.anthos.val.arkea-gcp.net
@@ -13,4 +13,4 @@ spec:
             prefix: /elk
       route:
         - destination:
-            host: elk
+            host: elastic-operator
