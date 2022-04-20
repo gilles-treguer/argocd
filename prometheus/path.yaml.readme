@@ -1,0 +1,138 @@
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: gmp-operator.gmp-system.monitoring.googleapis.com
+webhooks:
+- name: validate.podmonitorings.gmp-operator.gmp-system.monitoring.googleapis.com
+  admissionReviewVersions:
+  - v1
+  clientConfig:
+    # caBundle populated by operator.
+    service:
+      namespace: gmp-system
+      name: gmp-operator
+      path: /validate/monitoring.googleapis.com/v1/podmonitorings
+      port: 8443
+  failurePolicy: Fail
+  sideEffects: None
+  rules:
+  - apiGroups:
+    - monitoring.googleapis.com
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - podmonitorings
+- name: validate.clusterpodmonitorings.gmp-operator.gmp-system.monitoring.googleapis.com
+  admissionReviewVersions:
+  - v1
+  clientConfig:
+    # caBundle populated by operator.
+    service:
+      namespace: gmp-system
+      name: gmp-operator
+      path: /validate/monitoring.googleapis.com/v1/clusterpodmonitorings
+      port: 8443
+  failurePolicy: Fail
+  sideEffects: None
+  rules:
+  - apiGroups:
+    - monitoring.googleapis.com
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - clusterpodmonitorings
+- name: validate.rules.gmp-operator.gmp-system.monitoring.googleapis.com
+  admissionReviewVersions:
+  - v1
+  clientConfig:
+    # caBundle populated by operator.
+    service:
+      namespace: gmp-system
+      name: gmp-operator
+      path: /validate/monitoring.googleapis.com/v1/rules
+      port: 8443
+  failurePolicy: Fail
+  sideEffects: None
+  rules:
+  - apiGroups:
+    - monitoring.googleapis.com
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - rules
+- name: validate.clusterrules.gmp-operator.gmp-system.monitoring.googleapis.com
+  admissionReviewVersions:
+  - v1
+  clientConfig:
+    # caBundle populated by operator.
+    service:
+      namespace: gmp-system
+      name: gmp-operator
+      path: /validate/monitoring.googleapis.com/v1/clusterrules
+      port: 8443
+  failurePolicy: Fail
+  sideEffects: None
+  rules:
+  - apiGroups:
+    - monitoring.googleapis.com
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - clusterrules
+- name: validate.globalrules.gmp-operator.gmp-system.monitoring.googleapis.com
+  admissionReviewVersions:
+  - v1
+  clientConfig:
+    # caBundle populated by operator.
+    service:
+      namespace: gmp-system
+      name: gmp-operator
+      path: /validate/monitoring.googleapis.com/v1/globalrules
+      port: 8443
+  failurePolicy: Fail
+  sideEffects: None
+  rules:
+  - apiGroups:
+    - monitoring.googleapis.com
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - globalrules
+- name: validate.operatorconfigs.gmp-operator.gmp-system.monitoring.googleapis.com
+  admissionReviewVersions:
+  - v1
+  clientConfig:
+    # caBundle populated by operator.
+    service:
+      namespace: gmp-system
+      name: gmp-operator
+      path: /validate/monitoring.googleapis.com/v1/operatorconfigs
+      port: 8443
+  failurePolicy: Fail
+  sideEffects: None
+  rules:
+  - apiGroups:
+    - monitoring.googleapis.com
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - operatorconfigs
