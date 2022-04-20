@@ -248,7 +248,7 @@ metadata:
 collection:
   credentials:
     name: gmp-test-sa
-    key: key.json
+    key: key.json.key
 ---
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
