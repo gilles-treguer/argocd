@@ -17,7 +17,7 @@ spec:
       - image: europe-west1-docker.pkg.dev/arcfdr-test-deployment/docker-registry/arkeagcp/nginx:latest
         name: nginx
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: WAR_ENV
           value: "REC"
