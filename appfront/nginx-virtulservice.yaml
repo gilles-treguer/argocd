@@ -1,0 +1,47 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx
+spec:
+  hosts:
+    - "nginx.onemesh.anthos.val.arkea-gcp.net"
+  gateways:
+    - istio-ingressgateway/istio-ingressgateway
+  http:
+    - match:
+        - uri:
+            prefix: /nginx
+      route:
+        - destination:
+            host: nginx
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-internet-and-nginx
+  #namespace is specified through kustomize
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            namespaces: ["istio-ingressgateway", "nginx"]
+      to:
+        - operation:
+            methods: ["GET"]
+            paths: ["/nginx*", "/version*"]
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: require-mtls
+spec:
+  action: DENY
+  rules:
+    - from:
+        - source:
+            notPrincipals: ["*"]
+
