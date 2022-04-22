@@ -3,6 +3,6 @@ kind: Namespace
 metadata:
   name: nginx
   labels:
-    app.kubernetes.io/instance: catalyst
+    app.kubernetes.io/instance: nginx
     istio.io/rev: asm-1124-1
-    kubernetes.io/metadata.name: catalyst
+    kubernetes.io/metadata.name: nginx
