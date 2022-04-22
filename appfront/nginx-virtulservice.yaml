@@ -13,7 +13,7 @@ spec:
             prefix: /nginx
       route:
         - destination:
-            host: nginx
+            host: nginx.onemesh.anthos.val.arkea-gcp.net
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
