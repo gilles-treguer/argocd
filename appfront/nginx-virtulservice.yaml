@@ -8,12 +8,9 @@ spec:
   gateways:
     - istio-ingressgateway/istio-ingressgateway
   http:
-    - match:
-        - uri:
-            prefix: /nginx
       route:
         - destination:
-            host: nginx.onemesh.anthos.val.arkea-gcp.net
+            host: nginx
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -32,7 +29,7 @@ spec:
       to:
         - operation:
             methods: ["GET"]
-            paths: ["/nginx*", "/version*"]
+            paths: ["/*", "/version*"]
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
