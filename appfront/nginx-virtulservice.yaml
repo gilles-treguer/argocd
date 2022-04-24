@@ -4,15 +4,15 @@ metadata:
   name: nginx
 spec:
   hosts:
-    - "nginx.financial.anthos.val.arkea-gcp.net"
+    - "nginx.arkea-gcp.net"
   gateways:
-    - istio-ingressgateway/istio-ingressgateway
+    - nginx/nginx-gateway
   http:
     - route:
         - destination:
             port:
               number: 4000
-            host: nginx.financial.anthos.val.arkea-gcp.net
+            host: nginx.arkea-gcp.net
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
