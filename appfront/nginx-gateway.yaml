@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway # use Istio default gateway implementation
   servers:
   - hosts:
-    - "nginx.arkea-gcp.net"
+    - "*.nginx.arkea-gcp.net"
     port:
       number: 80
       protocol: http

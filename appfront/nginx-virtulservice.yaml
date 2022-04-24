@@ -4,7 +4,7 @@ metadata:
   name: nginx
 spec:
   hosts:
-    - "nginx.arkea-gcp.net"
+    - "nginx.nginx.arkea-gcp.net"
   gateways:
     - nginx/nginx-gateway
   http:
@@ -12,7 +12,7 @@ spec:
         - destination:
             port:
               number: 4000
-            host: nginx.arkea-gcp.net
+            host: nginx.nginx.arkea-gcp.net
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
