@@ -10,6 +10,8 @@ spec:
   http:
     - route:
         - destination:
+            port:
+              number: 4000
             host: nginx
 ---
 apiVersion: security.istio.io/v1beta1
