@@ -8,7 +8,7 @@ spec:
   gateways:
     - istio-ingressgateway/istio-ingressgateway
   http:
-      route:
+    - route:
         - destination:
             host: nginx
 ---
