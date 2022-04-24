@@ -4,7 +4,7 @@ metadata:
   name: nginx
 spec:
   hosts:
-    - "nginx.onemesh.anthos.val.arkea-gcp.net"
+    - "nginx.financial.anthos.val.arkea-gcp.net"
   gateways:
     - istio-ingressgateway/istio-ingressgateway
   http:
@@ -12,7 +12,7 @@ spec:
         - destination:
             port:
               number: 4000
-            host: nginx
+            host: nginx.financial.anthos.val.arkea-gcp.net
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -31,7 +31,7 @@ spec:
       to:
         - operation:
             methods: ["GET"]
-            paths: ["/*", "/version*"]
+            paths: ["/nginx*", "/version*"]
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
