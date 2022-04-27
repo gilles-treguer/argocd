@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: theia
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: theia
+  template:
+    metadata:
+      labels:
+        app: theia
+    spec:
+      containers:
+      - image: europe-west1-docker.pkg.dev/arcfdr-test-deployment/docker-registry/arkeagcp/theia-python:latest
+        name: theia
+        ports:
+        - containerPort: 3000
+        env:
+        - name: test
+          value: "DEV"

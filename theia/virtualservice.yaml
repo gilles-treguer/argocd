@@ -1,0 +1,47 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: theia
+spec:
+  hosts:
+    - "theia.onemesh.anthos.val.arkea-gcp.net"
+  gateways:
+    - istio-ingressgateway/istio-ingressgateway
+  http:
+    - match:
+        - uri:
+            prefix: /theia
+      route:
+        - destination:
+            host: theia
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-internet-and-theia
+  #namespace is specified through kustomize
+spec:
+  selector:
+    matchLabels:
+      app: theia
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            namespaces: ["istio-ingressgateway", "theia"]
+      to:
+        - operation:
+            methods: ["GET"]
+            paths: ["/theia*", "/version*"]
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: require-mtls
+spec:
+  action: DENY
+  rules:
+    - from:
+        - source:
+            notPrincipals: ["*"]
+
